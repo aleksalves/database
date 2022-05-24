@@ -1,0 +1,61 @@
+create schema gestao_time;
+USE gestao_time;
+
+create table TIME(
+	CODIGO BIGINT NOT NULL AUTO_INCREMENT,
+    NOME VARCHAR(100) NOT NULL,
+    PROPOSITO VARCHAR(500) NOT NULL,
+    primary key (CODIGO)
+);
+
+INSERT INTO TIME (NOME, PROPOSITO) VALUES ('Soluções: Gestão de Limites Cartões', 'Fazer a gestão de limites do cliente de forma responsável');
+
+create table TIPO_MEMBRO(
+	TIPO VARCHAR(3) NOT NULL, 
+    DESCRICAO VARCHAR(50) NOT NULL,
+    primary key(TIPO),
+    CHECK (TIPO IN ('TM', 'TCL', 'PM', 'PO', 'CH'))
+    );
+    
+INSERT INTO tipo_membro (tipo, descricao) values('TM', 'Team Member'), ('TCL', 'TechLead'), ('PM', 'Product Manager'), ('PO', 'Product Owner'), ('CH', 'ChapterLead');
+
+select * from tipo_membro;
+
+create table CARGO(
+	TIPO VARCHAR(15) NOT NULL, 
+    DESCRICAO VARCHAR(50) NOT NULL,
+    primary key(TIPO),
+    CHECK (TIPO IN ('ESTAG', 'SR', 'PL', 'JR', 'COORD'))
+    );
+
+INSERT INTO CARGO (tipo, descricao) values('ESTAG', 'Estagiário'), ('SR', 'Sênior'), ('PL', 'Pleno'), ('JR', 'Junior'), ('COORD', 'Coordenador');
+
+select * from cargo;
+
+create table MEMBRO(
+	CODIGO BIGINT AUTO_INCREMENT NOT NULL,
+	POSICAO VARCHAR(3) NOT NULL, 
+    EXPERIENCIA VARCHAR(15) NOT NULL,
+    NOME VARCHAR(100) NOT NULL,
+    IDADE INT NOT NULL,
+    primary key(CODIGO),
+    foreign key (POSICAO) REFERENCES TIPO_MEMBRO (TIPO),
+    foreign key (EXPERIENCIA) REFERENCES CARGO (TIPO)
+    );
+    
+create table TIME_MEMBRO(
+	CODIGO_TIME BIGINT NOT NULL,
+    CODIGO_MEMBRO BIGINT NOT NULL,
+    DATA_EGRESSO DATE NOT NULL,
+    FOREIGN KEY (CODIGO_TIME) REFERENCES TIME(CODIGO),
+    FOREIGN KEY (CODIGO_MEMBRO) REFERENCES MEMBRO(CODIGO)
+);
+
+create table USUARIO(
+	CODIGO BIGINT NOT NULL AUTO_INCREMENT,
+    USUARIO VARCHAR(7) NOT NULL,
+    SENHA VARCHAR(500) NOT NULL,
+    CODIGO_TIME BIGINT NOT NULL,
+    PRIMARY KEY(CODIGO),
+    FOREIGN KEY (CODIGO_TIME) REFERENCES TIME(CODIGO)
+);
