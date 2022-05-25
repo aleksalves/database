@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="container-fluid px-4">
+    <h1 class="mt-4" th:text="${session.nomeTime}"/>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Equipe</li>
+    </ol>
+
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Cadastro de Membro</h3></div>
+                                <div class="card-body">
+                                    <form th:object="${membro}">
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="nome" type="text" placeholder="Nome da pessoa" th:field="*{nome}" />
+                                                    <label for="nome">Nome</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="posicao" type="text" placeholder="Papel da pessoa" th:field="*{posicao}" />
+                                                    <label for="posicao">Papel</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="idade" type="password" placeholder="Idade da pessoa" th:field="*{idade}" />
+                                                    <label for="idade">Idade</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input class="form-control" id="experiencia" type="password" placeholder="Cargo da pessoa" th:field="*{experiencia}" />
+                                                    <label for="experiencia">Cargo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Salvar</a></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <!--            <div class="row">-->
+    <!--                <div class="col-xl-3 col-md-6">-->
+    <!--                    <div class="card bg-primary text-white mb-4">-->
+    <!--                        <div class="card-body">Primary Card</div>-->
+    <!--                        <div class="card-footer d-flex align-items-center justify-content-between">-->
+    <!--                            <a class="small text-white stretched-link" href="#">View Details</a>-->
+    <!--                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-xl-3 col-md-6">-->
+    <!--                    <div class="card bg-warning text-white mb-4">-->
+    <!--                        <div class="card-body">Warning Card</div>-->
+    <!--                        <div class="card-footer d-flex align-items-center justify-content-between">-->
+    <!--                            <a class="small text-white stretched-link" href="#">View Details</a>-->
+    <!--                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-xl-3 col-md-6">-->
+    <!--                    <div class="card bg-success text-white mb-4">-->
+    <!--                        <div class="card-body">Success Card</div>-->
+    <!--                        <div class="card-footer d-flex align-items-center justify-content-between">-->
+    <!--                            <a class="small text-white stretched-link" href="#">View Details</a>-->
+    <!--                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-xl-3 col-md-6">-->
+    <!--                    <div class="card bg-danger text-white mb-4">-->
+    <!--                        <div class="card-body">Danger Card</div>-->
+    <!--                        <div class="card-footer d-flex align-items-center justify-content-between">-->
+    <!--                            <a class="small text-white stretched-link" href="#">View Details</a>-->
+    <!--                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    Area Chart Example
+                </div>
+                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Bar Chart Example
+                </div>
+                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
