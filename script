@@ -1,0 +1,2 @@
+-- insert into membro (posicao, experiencia, nome, idade) values ("TM", "JR", "José Jailson Santos Craibas", 28);
+insert into membro (posicao, experiencia, nome, idade) values ("TM", "JR", "Lucas Silva Souza", 26), ("TM", "PL", "Nayara Lays", 34), ("TM", "PL", "Vinicius Nunes Mousa", 27), ("TM", "PL", "Julio Cesar Dias Sophi", 28), ("TCL", "SR", "Aleksandre Alves da Silva Júnior", 26), ("TM", "SR", "José Anibal Drago", 77), ("TM", "SR", "Bruno Fonseca", 31), ("PM", "SR", "Claudia Melo Trindade", 47);
